@@ -10,6 +10,7 @@ Third-party component inventory, integration records, patches, and license/prove
 - Wicofe-specific patch tracking and upstream submission status.
 - Security advisories and maintenance status for integrated components.
 - Build and integration notes for approved third-party software.
+- Dependency inventories and release SBOM reconciliation.
 
 ## Policy
 
@@ -49,7 +50,7 @@ Original Wicofe-authored material is intended to use MPL-2.0. Third-party code a
 
 ## Component intake
 
-Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md) to record source provenance, exact versions, license obligations, enabled features, patches, and review decisions for each proposed third-party dependency.
+Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md) to record source provenance, exact versions, license obligations, enabled features, patches, and review decisions for each proposed third-party dependency. Review the [third-party intake architecture](docs/THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md) for the approval workflow and audit requirements.
 
 ## Documentation
 
