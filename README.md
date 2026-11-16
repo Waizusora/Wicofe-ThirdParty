@@ -46,6 +46,10 @@ Original Wicofe-authored material is intended to use MPL-2.0. Third-party code a
 
 Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md), [third-party intake architecture](docs/THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md), and the binding [dependency license policy](policies/DEPENDENCY_LICENSE_POLICY_0.2.md).
 
+## Automated dependency audit
+
+The initial [Dependency License Auditor](https://github.com/Waizusora/Wicofe-Tools/blob/main/docs/DEPENDENCY_LICENSE_AUDITOR.md) is maintained in Wicofe-Tools. Its cross-repository workflow checks the canonical 29-repository set and publishes JSON/Markdown evidence artifacts. Current resolver coverage is incomplete: Cargo metadata is resolved; non-Cargo ecosystems and final-image/asset inventories remain blocked pending implementation and review. No repository-wide compliance claim is made.
+
 ## Documentation
 
 See [docs/INDEX.md](docs/INDEX.md). The [central repository documentation map](https://github.com/Waizusora/Wicofe-Docs/blob/main/REPOSITORY_DOCUMENTATION_MAP.md) identifies canonical ownership and cross-repository boundaries.
