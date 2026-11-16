@@ -26,9 +26,12 @@ Both records are from Wicofe-Kernel's CI workflow and are build/test host depend
 | `qemu-system-x86` | `1:10.2.1+ds-1ubuntu3.3` | x86-64 BIOS boot validation | GPL-2.0-or-later | Replace with a permitted emulator and prove boot-log parity |
 | `xorriso` | `1:1.5.6-1.1ubuntu4` | ISO generation and ISO notice inspection | GPL-2.0-or-later | Replace with a permitted ISO authoring/inspection tool and prove ISO/El Torito parity |
 
-Candidates already identified:
-- QEMU: Bochs (LGPL-2.1). This needs exact LGPL review, explicit approval and boot test parity; it does not replace an AArch64 emulator.
-- xorriso: cdrtools/mkisofs (CDDL-1.0, other copyleft requiring explicit project-owner approval) or libisofs/libburn (LGPL-family, linking/relinking and notice review required).
+Candidates under technical/license review:
+- QEMU: [Bochs 3.1](https://github.com/bochs-emu/Bochs/tree/REL_3_1_FINAL), source snapshot `8a71571438ad477455b1996bf4e31087694a93b2`, upstream [LGPL-2.1 LICENSE](https://github.com/bochs-emu/Bochs/blob/8a71571438ad477455b1996bf4e31087694a93b2/LICENSE). Its upstream README confirms x86-64 PC/BIOS emulation. It is a plausible replacement for the current x86-64 BIOS test, but its file-level license notices, package closure, serial logging, performance and boot-marker parity must be checked. It is not an AArch64 emulator.
+- xorriso: [PyCdlib 1.22.0](https://pypi.org/project/pycdlib/), source snapshot `d5a9946b08a6a30935dcca188b7ef7fa744a4967`, upstream [LGPL-2.1-only COPYING](https://github.com/clalancette/pycdlib/blob/d5a9946b08a6a30935dcca188b7ef7fa744a4967/COPYING). Upstream documentation demonstrates El Torito bootable ISO creation. It may replace the xorriso ISO-authoring call through its Python API, but requires explicit LGPL approval and exact BIOS boot-info-table, Rock Ridge/Joliet, file ordering, volume metadata, and byte/boot parity tests. Its upstream packaging test recipe references genisoimage; do not import that GPL test dependency into Wicofe CI.
+- xorriso: cdrtools/mkisofs (CDDL-1.0; explicit other-copyleft review/approval required) or libisofs/libburn (LGPL-family; linking/relinking and notice review required).
+
+No candidate is approved. All require exact source/license and dependency-closure review before integration.
 
 No candidate is approved. Do not remove either current tool until a replacement has been built, exercised and compared against the existing ISO/boot validation behavior.
 
