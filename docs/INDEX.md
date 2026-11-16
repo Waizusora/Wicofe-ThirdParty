@@ -7,6 +7,9 @@ This directory documents external components integrated or proposed for Wicofe.
 - [Third-party intake and compliance architecture 0.1](THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md) — source provenance, license review, dependency inventory, security assessment, approval scope and SBOM integration.
 - [Component record template](../COMPONENT_RECORD_TEMPLATE.md) — human-readable intake record for an individual dependency.
 
+## Current audit records
+- [CI action dependency inventory](../AUDIT.md) — upstream source commits and license evidence for observed GitHub Actions; all remain pending explicit approval.
+
 ## Scope
 - Component inventory and exact upstream provenance.
 - Versions, commits, source integrity, and download records.
