@@ -93,14 +93,14 @@ The pinned kernel CI environment installs and uses the following GPL build/test 
 | \`xorriso\` | \`1:1.5.6-1.1ubuntu4\` | ISO creation | REJECTED — GPL-2.0-or-later |
 
 The toolchain remediation already removed GNU Make, GNU tar, GNU coreutils \`sha256sum\`, and GNU binutils \`readelf\` from the active kernel build steps:
-- Limine host utility is compiled from its C99 source using pinned Clang 22.
+- Limine host utility is taken from the pinned binary archive; no compiler or GNU Make is needed in this workflow.
 - SHA-256 verification and safe archive extraction use Python standard-library \`hashlib\` and \`tarfile\`.
 - ELF inspection uses \`llvm-readelf-22\`.
 
 Remaining alternatives under evaluation:
 - QEMU → Bochs (LGPL-2.1; x86 PC emulator, not an AArch64 replacement). Requires LGPL review/approval and boot-log parity tests.
 - xorriso → cdrtools/mkisofs (CDDL-1.0; explicit copyleft review/approval) or libisofs/libburn (LGPL-family; linking/relinking and notice obligations require review).
-- Clang/LLVM 22 uses Apache-2.0 WITH LLVM-exception; verify package-level notices from the CI system-package inventory before approval.
+- LLVM 22 tools use Apache-2.0 WITH LLVM-exception; verify package-level notices from the CI system-package inventory before approval.
 
 The current QEMU and xorriso uses remain release blockers until a permitted replacement is validated or the policy scope is explicitly revised by its owner. They have not been removed because they currently provide the working ISO-generation and boot-validation path.
 
