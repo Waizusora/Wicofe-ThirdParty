@@ -1,3 +1,5 @@
+> **SUPERSEDED — DO NOT APPLY.** This policy version was superseded on 2026-11-16 by [Wicofe Dependency License Policy 0.2](DEPENDENCY_LICENSE_POLICY_0.2.md). Policy 0.2 is authoritative and permits non-GPL/non-AGPL licenses subject to their terms and compatibility review. This file is retained only as historical decision history.
+
 # Wicofe Third-Party Dependency License Policy 0.1
 
 **Identifier:** WIC-GOV-LICENSE-001  
