@@ -8,7 +8,8 @@ This directory documents external components integrated or proposed for Wicofe.
 - [Component record template](../COMPONENT_RECORD_TEMPLATE.md) — human-readable intake record for an individual dependency.
 
 ## Current audit records
-- [CI action dependency inventory](../AUDIT.md) — upstream source commits and license evidence for observed GitHub Actions; all remain pending explicit approval.
+- [CI action and cross-repository dependency inventory](../AUDIT.md) — upstream source commits, license evidence and strict audit findings.
+- [Dependency review queue — 2026-11-16](../DEPENDENCY_REVIEW_QUEUE_2026-11-16.md) — rejected GPL host tools, LGPL-bearing alternatives, UNKNOWN identities, unapproved records and release blockers.
 
 ## Scope
 - Component inventory and exact upstream provenance.
