@@ -66,11 +66,11 @@ These inventories are separate from the 347 source/build records above and must 
 | Wicofe-Kernel | 103 | 15 | 84 | 4 |
 | WDE | 32 | 0 | 19 | 13 |
 
-Kernel CI artifact: [run 43880975214 / artifact 14232042726](https://github.com/Waizusora/Wicofe-Kernel/actions/runs/43880975214/artifacts/14232042726). The 15 rejected package records are `cpu-checker`, `ipxe-qemu`, `libburn4t64`, `libcdparanoia0`, `libfdt1`, `libfftw3-single3`, `libiscsi7`, `libisoburn1t64`, `libisofs6t64`, `libv4l-0t64`, `libv4lconvert0t64`, `libvte-2.91-0`, `libvte-2.91-common`, `msr-tools` and `xorriso`. The xorriso closure includes GPL `libburn4t64`, `libisoburn1t64` and `libisofs6t64`. The installed package delta still needs direct/transitive/recommended relationship mapping.
+Kernel CI artifact: [run 43881542034 / artifact 14231614886](https://github.com/Waizusora/Wicofe-Kernel/actions/runs/43881542034/artifacts/14231614886). The 15 rejected package records are `cpu-checker`, `ipxe-qemu`, `libburn4t64`, `libcdparanoia0`, `libfdt1`, `libfftw3-single3`, `libiscsi7`, `libisoburn1t64`, `libisofs6t64`, `libv4l-0t64`, `libv4lconvert0t64`, `libvte-2.91-0`, `libvte-2.91-common`, `msr-tools` and `xorriso`. The xorriso closure includes GPL `libburn4t64`, `libisoburn1t64` and `libisofs6t64`. The installed package delta still needs direct/transitive/recommended relationship mapping.
 
 Sixty-three Kernel package records contain LGPL declarations: 27 primary LGPL, 26 MIXED_REVIEW, three OTHER_REVIEW and seven REJECTED because GPL is required. Three OR expressions are held at NEEDS_REVIEW: `ipxe-qemu-256k-compat-efi-roms` (GPL OR UBDL), `libflac14` (GPL OR LGPL), and `librdmacm1t64` (BSD-MIT OR GPL). QEMU's Debian package family uses the non-SPDX expression `GPL2-or-LGPL2-with-additions`; the package-level records remain NEEDS_REVIEW while the source-level scan conservatively rejects QEMU from upstream GPL COPYING evidence. QEMU remains blocked pending file/binary mapping.
 
-WDE CI artifact: [run 43880983235 / artifact 14231024109](https://github.com/Waizusora/WDE/actions/runs/43880983235/artifacts/14231024109). Fourteen GLVND/Mesa package records have MIT as the primary `Files: *` license but GPL-3+ declarations in non-default copyright stanzas; all remain NEEDS_REVIEW pending binary payload mapping. Thirteen package identities remain UNKNOWN.
+WDE CI artifact: [run 43881760690 / artifact 14232651762](https://github.com/Waizusora/WDE/actions/runs/43881760690/artifacts/14232651762). Fourteen GLVND/Mesa package records have MIT as the primary `Files: *` license but GPL-3+ declarations in non-default copyright stanzas; all remain NEEDS_REVIEW pending binary payload mapping. Thirteen package identities remain UNKNOWN.
 
 ### Direct GPL host tools
 
