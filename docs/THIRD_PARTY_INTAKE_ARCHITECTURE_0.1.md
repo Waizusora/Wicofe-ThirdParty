@@ -51,7 +51,7 @@ Record exact license evidence, not only a guessed SPDX identifier:
 
 Use SPDX identifiers and expressions where applicable, but retain the actual license texts and notices. NOASSERTION or LicenseRef identifiers may be necessary when the license cannot be mapped confidently. Do not infer a license from a repository badge or package registry metadata alone.
 
-MPL-2.0 is the intended license for original Wicofe-authored code. It does not automatically relicense third-party code or establish that every dependency is compatible with every distribution model. GPL-family, LGPL, AGPL, proprietary, dual-licensed and exception-bearing components require exact license/version and combination review. Do not blanket-approve or blanket-reject a family without analyzing the actual terms and planned use.
+MPL-2.0 is the intended license for original Wicofe-authored code. The binding project policy is [DEPENDENCY_LICENSE_POLICY_0.1.md](../policies/DEPENDENCY_LICENSE_POLICY_0.1.md): GPL and AGPL dependencies are prohibited; LGPL is conditionally eligible only after essentiality, in-house feasibility, exact-version legal review and explicit project-owner approval; all other third-party dependency license families are disallowed unless the policy is formally amended. Unknown or incomplete license evidence blocks approval. This policy applies to direct and transitive dependencies and shipped non-code assets.
 
 ## 5. Dependency graph and feature audit
 
@@ -151,6 +151,8 @@ Treat source archives, Git submodules, build scripts, package metadata and gener
 Keep credentials and private signing keys out of component records and public logs. Record hashes and public provenance metadata instead.
 
 ## 13. Licensing policy
+
+The binding policy is [Wicofe Dependency License Policy 0.1](../policies/DEPENDENCY_LICENSE_POLICY_0.1.md). GPL and AGPL are prohibited. LGPL is conditionally eligible only when the dependency is essential, cannot reasonably be implemented in-house, passes exact-version legal and technical review, and receives explicit project-owner approval. All other third-party dependency license families are disallowed unless the policy is formally amended. Unknown or incomplete license evidence blocks approval.
 
 Original Wicofe-ThirdParty code targets MPL-2.0. Third-party license texts and notices remain under their respective terms. Do not remove, alter or relicense upstream notices. Distribution review must consider source obligations, notices, binary redistribution, modifications, linking/combination and all shipped assets.
 
