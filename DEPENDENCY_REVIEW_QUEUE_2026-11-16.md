@@ -17,7 +17,7 @@
 | PASS / APPROVED_WITH_CONDITIONS | 0 | No approved records in this snapshot |
 | **Total** | **347** | **BLOCKED** |
 
-The 347 records include 217 Cargo records, 22 GitHub Actions, 72 build-tool command records, 14 system-package references, 12 build-script command records, six runner images, three Rust toolchain records and one downloaded artifact.
+The 347 records include 217 Cargo records (216 WDE, one Osynit; no external crate records in the Mysh or Kernel Cargo graphs), 22 GitHub Actions, 72 build-tool command records, 14 system-package references, 12 build-script command records, six runner images, three Rust toolchain records and one downloaded artifact. All 217 Cargo records are NEEDS_REVIEW; none is GPL/AGPL REJECTED or PASS.
 
 ### Additional per-repository CI system-package inventories
 
