@@ -28,6 +28,40 @@ The upstream LICENSE files listed below were inspected at the stated source snap
 | `taiki-e/install-action@cross` | `af22fbf512bbc91a6a7869728037f907cc27e9d1` | MIT OR Apache-2.0 | [MIT](https://github.com/taiki-e/install-action/blob/af22fbf512bbc91a6a7869728037f907cc27e9d1/LICENSE-MIT) · [Apache-2.0](https://github.com/taiki-e/install-action/blob/af22fbf512bbc91a6a7869728037f907cc27e9d1/LICENSE-APACHE) |
 | `Waizusora/Wicofe-Tools/.github/workflows/cross-repository-dependency-audit.yml` | `ad1175c000c765834045a0035fae3cb0b4a49374` | MPL-2.0 | [LICENSE](https://github.com/Waizusora/Wicofe-Tools/blob/ad1175c000c765834045a0035fae3cb0b4a49374/LICENSE) |
 
+
+## Cross-repository scan snapshot — 2026-11-16
+
+**Workflow run:** [Strict 29-repository audit](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43812088175)  
+**Artifact:** [JSON/Markdown reports and transient lockfiles](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43812088175/artifacts/14201310393)
+
+| Finding | Result |
+|---|---:|
+| Repositories checked out and revision-recorded | 29 / 29 |
+| Repositories with resolved Cargo manifest coverage | 4 |
+| Repositories with no recognized dependency manifest | 25 |
+| Cargo manifests | 16 |
+| Cargo lockfiles generated in disposable CI checkout | 4 |
+| External Cargo package records | 0 |
+| GitHub Actions dependency records | 20 |
+| Repositories with GitHub Actions dependencies | 6 |
+| Known vendored/binary asset records | 0 |
+| Git submodule records | 0 |
+
+Cargo workspaces checked: Wicofe-Kernel, Osynit and WDE; standalone Cargo package: Mysh. Their Cargo metadata graphs contained no external Cargo package dependencies. The source repositories did not contain committed Cargo.lock files at audit time; CI generated transient lockfiles for the audit snapshot and uploaded them as evidence. This does not make those source builds reproducible.
+
+The 20 GitHub Actions records span Mysh (9), Osynit (2), WDE (2), Wicofe-Kernel (2), Wicofe-Tools (4) and Wicofe-Build (1). Upstream license evidence was collected for the external actions. The external action evidence set contains MIT, Apache-2.0 and MIT OR Apache-2.0 licenses; the internal reusable Wicofe workflow is MPL-2.0. No GPL/AGPL license was identified in this limited set.
+
+**Strict result: BLOCKED.** All 25 repositories without recognized dependency manifests have coverage status UNKNOWN. All 20 action records remain NEEDS_REVIEW because the required scoped human approval has not been recorded. Wicofe-Tools consumer refs are SHA-pinned; other consumer repositories still contain mutable tag/branch references. No dependency was marked approved.
+
+## Audit limitations
+
+- Non-Cargo dependency resolvers are not implemented yet. The scan currently discovers their manifest names and blocks unresolved ecosystems.
+- Zero known asset/submodule matches means only that the current extension/path scanner found none; it is not proof that every binary, generated file, firmware blob, font, codec, schema or vendored component was inspected.
+- Build toolchains, downloaded build-time tools, transitive dependencies inside GitHub Actions, and final Wicofe image contents are not fully inventoried.
+- The Wicofe-Build release gate now calls the reusable cross-repository audit workflow at immutable workflow commit \`ad1175c000c765834045a0035fae3cb0b4a49374\` and pins the auditor checkout to \`b459eb9dd80b265183bff4dc518d82ad73321150\`. The gate is active but currently blocks, as intended, on unresolved coverage and approvals.
+
+This snapshot is not a Wicofe OS compliance certification.
+
 ## Required follow-up
 
 1. Obtain explicit project-owner approval for each action/version under the consuming repository and release scope.
