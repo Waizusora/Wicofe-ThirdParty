@@ -6,7 +6,7 @@
 
 ## Scope and result
 
-The cross-repository scanner found external GitHub Actions in Mysh, Osynit, WDE, Wicofe-Kernel and Wicofe-Tools. Wicofe-Build now consumes the Wicofe-Tools reusable audit workflow at an immutable commit.
+The cross-repository scanner found 22 GitHub Actions dependency records across Mysh, Osynit, WDE, Wicofe-Kernel, Wicofe-Tools and Wicofe-Build. Wicofe-Build consumes the Wicofe-Tools reusable audit workflow at an immutable commit. The table below lists distinct upstream action/workflow references with source/license evidence; repeated use by different consumers is counted separately in the 22-record total.
 
 The upstream LICENSE files listed below were inspected at the stated source snapshots. No GPL/AGPL license text was identified in this limited action inventory. This is not a complete security, maintenance, transitive-action, or legal review. No action is marked approved.
 
