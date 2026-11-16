@@ -12,11 +12,17 @@ Third-party component inventory, integration records, patches, and license/prove
 - Build and integration notes for approved third-party software.
 - Dependency inventories and release SBOM reconciliation.
 
-## Policy
+## Dependency license policy
 
-No third-party component is approved merely because it builds or is available under an open-source license. Review the exact license, version, source provenance, transitive dependencies, optional features, generated files, and redistribution obligations before integration.
+The authoritative [Wicofe dependency license policy](policies/DEPENDENCY_LICENSE_POLICY_0.1.md) applies to every direct and transitive dependency and shipped asset:
 
-The project's original code targets MPL-2.0. Third-party components retain their upstream licenses; do not relicense imported code or remove required notices. GPL-family components require an explicit compatibility and distribution review before inclusion in a Wicofe release.
+- GPL: prohibited.
+- AGPL: prohibited.
+- LGPL: conditionally allowed only when essential, not reasonably implementable in-house, isolated where practical, legally reviewed and explicitly approved by the project owner.
+- All other third-party dependency licenses: not permitted unless the policy is formally amended.
+- Unknown or incomplete license evidence: blocked.
+
+Original Wicofe-authored code targets MPL-2.0. Third-party code retains its own license and notices; do not relicense imported code or remove notices.
 
 ## Required component record
 
@@ -50,7 +56,7 @@ Original Wicofe-authored material is intended to use MPL-2.0. Third-party code a
 
 ## Component intake
 
-Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md) to record source provenance, exact versions, license obligations, enabled features, patches, and review decisions for each proposed third-party dependency. Review the [third-party intake architecture](docs/THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md) for the approval workflow and audit requirements.
+Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md) to record source provenance, exact versions, license obligations, enabled features, patches, and review decisions. Review the [third-party intake architecture](docs/THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md) and the binding [dependency license policy](policies/DEPENDENCY_LICENSE_POLICY_0.1.md).
 
 ## Documentation
 
