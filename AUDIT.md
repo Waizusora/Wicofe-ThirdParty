@@ -55,7 +55,7 @@ The upstream LICENSE files listed below were inspected at the stated source snap
 | Known vendored asset records | 2 (both UNKNOWN) |
 | Git submodule records | 0 |
 
-The four Cargo workspaces are Wicofe-Kernel, Osynit, WDE and Mysh. Six repositories emitted source/build dependency records: Wicofe-Kernel (45), WDE (239), Mysh (32), Osynit (8), Wicofe-Tools (22) and Wicofe-Build (1 UNKNOWN). The other 23 repositories emitted no records; this is not a no-dependency approval.
+The four Cargo workspaces are Wicofe-Kernel, Osynit, WDE and Mysh. The manifest inventory contains 23 records: 16 Cargo.toml, four Cargo.lock and three rust-toolchain.toml; no npm, Go, Maven, Gradle, CMake or Meson manifests were detected. Six repositories emitted source/build dependency records: Wicofe-Kernel (45), WDE (239), Mysh (32), Osynit (8), Wicofe-Tools (22) and Wicofe-Build (1 UNKNOWN). The other 23 repositories emitted no records; this is not a no-dependency approval.
 
 ### Additional CI package-closure evidence
 
