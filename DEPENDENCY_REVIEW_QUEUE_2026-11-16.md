@@ -64,7 +64,7 @@ The 103 package records are the installed CI package delta, not a proven minimal
 ## 3. LGPL inventory — Kernel CI package closure
 
 Sixty-three Kernel CI package records contain LGPL declarations:
-- 27 have primary category LGPL.
+- 27 have primary scanner category LGPL: 18 carry LGPL SPDX-like expressions, while nine QEMU-family records use the custom, unverified `GPL2-or-LGPL2-with-additions` expression and must not be treated as confirmed LGPL approvals.
 - 26 are MIXED_REVIEW.
 - 3 are OTHER_REVIEW.
 - 7 are REJECTED because their primary/required license is GPL.
