@@ -31,37 +31,59 @@ The upstream LICENSE files listed below were inspected at the stated source snap
 
 ## Cross-repository scan snapshot — 2026-11-16
 
-**Workflow run:** [Strict 29-repository audit](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43812088175)  
-**Artifact:** [JSON/Markdown reports and transient lockfiles](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43812088175/artifacts/14201310393)
+**Latest completed evidence run:** [Wicofe-Tools run 43877691846](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43877691846)  
+**Artifact:** [29-repository JSON/Markdown reports and Cargo metadata](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43877691846/artifacts/14231895200)  
+**Policy:** [Dependency License Policy 0.2](policies/DEPENDENCY_LICENSE_POLICY_0.2.md)
 
 | Finding | Result |
 |---|---:|
 | Repositories checked out and revision-recorded | 29 / 29 |
-| Repositories with resolved Cargo manifest coverage | 4 |
-| Repositories with no recognized dependency manifest | 25 |
-| Cargo manifests | 16 |
-| Cargo lockfiles generated in disposable CI checkout | 4 |
-| External Cargo package records | 0 |
-| GitHub Actions dependency records | 20 |
-| Repositories with GitHub Actions dependencies | 6 |
-| Known vendored/binary asset records | 0 |
+| Repositories with resolved Cargo manifests | 4 |
+| Cargo.toml manifests | 16 |
+| Transient Cargo.lock files generated in disposable CI checkouts | 4 |
+| Total dependency/build-time records | 347 |
+| NEEDS_REVIEW | 244 |
+| UNKNOWN | 101 |
+| REJECTED | 2 |
+| Cargo dependency records | 217 |
+| GitHub Actions records | 22 |
+| Build-tool command records | 72 |
+| System-package records | 14 |
+| Build-script command records | 12 |
+| Runner-image records | 6 |
+| Rust toolchain records | 3 |
+| Downloaded-artifact records | 1 |
+| Known vendored asset records | 2 (both UNKNOWN) |
 | Git submodule records | 0 |
 
-Cargo workspaces checked: Wicofe-Kernel, Osynit and WDE; standalone Cargo package: Mysh. Their Cargo metadata graphs contained no external Cargo package dependencies. The source repositories did not contain committed Cargo.lock files at audit time; CI generated transient lockfiles for the audit snapshot and uploaded them as evidence. This does not make those source builds reproducible.
+Cargo workspaces/packages audited: Wicofe-Kernel, Osynit, WDE and Mysh. The 217 Cargo records are part of the larger 347-record inventory; the remaining records cover GitHub Actions, build commands, system packages, runner images, toolchains and downloaded artifacts. Four transient lockfiles were generated in disposable CI checkouts and uploaded as evidence. They were not committed to source repositories.
 
-The 20 GitHub Actions records span Mysh (9), Osynit (2), WDE (2), Wicofe-Kernel (2), Wicofe-Tools (4) and Wicofe-Build (1). Upstream license evidence was collected for the external actions. The external action evidence set contains MIT, Apache-2.0 and MIT OR Apache-2.0 licenses; the internal reusable Wicofe workflow is MPL-2.0. No GPL/AGPL license was identified in this limited set.
+Six repositories emitted dependency/build-time records: Wicofe-Kernel (45), WDE (239), Mysh (32), Osynit (8), Wicofe-Tools (22) and Wicofe-Build (1). The other 23 repositories emitted no dependency records in this run; that is not a no-dependency approval. Repositories without resolved Cargo manifest coverage remain UNKNOWN pending complete source/build/asset inspection and human attestation where justified.
 
-**Strict result: BLOCKED.** All 25 repositories without recognized dependency manifests have coverage status UNKNOWN. All 20 action records remain NEEDS_REVIEW because the required scoped human approval has not been recorded. Wicofe-Tools consumer refs are SHA-pinned; other consumer repositories still contain mutable tag/branch references. No dependency was marked approved.
+### Prohibited GPL host tools
 
-## Audit limitations
+Two GPL-2.0-or-later host packages were detected in Wicofe-Kernel CI and are **REJECTED** under Policy 0.2:
 
-- Non-Cargo dependency resolvers are not implemented yet. The scan currently discovers their manifest names and blocks unresolved ecosystems.
-- Zero known asset/submodule matches means only that the current extension/path scanner found none; it is not proof that every binary, generated file, firmware blob, font, codec, schema or vendored component was inspected.
-- Build toolchains, downloaded build-time tools, transitive dependencies inside GitHub Actions, and final Wicofe image contents are not fully inventoried.
-- The Wicofe-Build release gate now calls the reusable cross-repository audit workflow at immutable workflow commit \`ad1175c000c765834045a0035fae3cb0b4a49374\` and pins the auditor checkout to \`b459eb9dd80b265183bff4dc518d82ad73321150\`. The gate is active but currently blocks, as intended, on unresolved coverage and approvals.
+| Dependency | Version | Function | Evidence |
+|---|---|---|---|
+| `qemu-system-x86` | `1:10.2.1+ds-1ubuntu3.3` | x86-64 BIOS boot validation | [QEMU COPYING](https://github.com/qemu/qemu/blob/2d3df8abca265c9bcc9e438d691d561592060998/COPYING) |
+| `xorriso` | `1:1.5.6-1.1ubuntu4` | ISO generation and ISO notice inspection | [libisoburn COPYING](https://github.com/Enzime/libisoburn/blob/master/COPYING) · [xorriso project](https://www.gnu.org/software/xorriso/) |
+
+They are build/test host dependencies and are not copied into the final ISO, but Policy 0.2 does not provide a build-only exception. They remain release blockers. They have not been removed because they currently provide required ISO-generation and boot-validation functionality.
+
+Candidate replacements already identified:
+- QEMU → Bochs (LGPL-2.1; explicit conditional approval and x86 boot-log parity tests required; not an AArch64 replacement).
+- xorriso → cdrtools/mkisofs (CDDL-1.0; explicit other-copyleft review/approval required) or libisofs/libburn (LGPL-family; linking/relinking and notice obligations require review).
+
+No candidate is approved by this report. A replacement must be tested before the GPL tool is removed.
+
+### Remaining status
+
+All 244 NEEDS_REVIEW records lack the required scoped approval. All 101 UNKNOWN records lack sufficient evidence or a resolved source/license identity. Two known vendored Limine notice files remain UNKNOWN as asset records until their component/source/binary distribution relationship is fully reconciled. The current scan does not prove the absence of other firmware, fonts, codecs, schemas, generated files or binary assets.
+
+Wicofe-Build contains a reusable/tag-triggered strict dependency gate that invokes the Wicofe-Tools cross-repository workflow at an immutable workflow revision and separately pins the auditor source. This integration point does not yet constitute a complete end-to-end image publication gate. Final image SBOM and notice reconciliation remain mandatory.
 
 This snapshot is not a Wicofe OS compliance certification.
-
 
 ## Limine bootloader binary — Wicofe-Kernel
 
