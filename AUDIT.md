@@ -82,6 +82,28 @@ Wicofe-Kernel now vendors the exact upstream COPYING and 3RDPARTY.md files under
 
 The script also uses host build tools including curl, make, tar, sha256sum and xorriso. Their versions, source provenance and build-environment image are not yet pinned. Limine's security/maintenance status is NOT_ASSESSED.
 
+
+## Wicofe-Kernel CI host-tool blockers
+
+The pinned kernel CI environment installs and uses the following GPL build/test tools. They are not copied into the Wicofe ISO, but Policy 0.2 has no documented build-only exception, so the auditor treats them as REJECTED and release-blocking rather than silently exempting them.
+
+| Dependency | Pinned version | Function | License decision |
+|---|---|---|---|
+| \`qemu-system-x86\` | \`1:10.2.1+ds-1ubuntu3.3\` | BIOS boot test | REJECTED — GPL-2.0-or-later |
+| \`xorriso\` | \`1:1.5.6-1.1ubuntu4\` | ISO creation | REJECTED — GPL-2.0-or-later |
+
+The toolchain remediation already removed GNU Make, GNU tar, GNU coreutils \`sha256sum\`, and GNU binutils \`readelf\` from the active kernel build steps:
+- Limine host utility is compiled from its C99 source using pinned Clang 22.
+- SHA-256 verification and safe archive extraction use Python standard-library \`hashlib\` and \`tarfile\`.
+- ELF inspection uses \`llvm-readelf-22\`.
+
+Remaining alternatives under evaluation:
+- QEMU → Bochs (LGPL-2.1; x86 PC emulator, not an AArch64 replacement). Requires LGPL review/approval and boot-log parity tests.
+- xorriso → cdrtools/mkisofs (CDDL-1.0; explicit copyleft review/approval) or libisofs/libburn (LGPL-family; linking/relinking and notice obligations require review).
+- Clang/LLVM 22 uses Apache-2.0 WITH LLVM-exception; verify package-level notices from the CI system-package inventory before approval.
+
+The current QEMU and xorriso uses remain release blockers until a permitted replacement is validated or the policy scope is explicitly revised by its owner. They have not been removed because they currently provide the working ISO-generation and boot-validation path.
+
 ## Required follow-up
 
 1. Obtain explicit project-owner approval for each action/version under the consuming repository and release scope.
