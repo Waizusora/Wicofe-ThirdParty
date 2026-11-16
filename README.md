@@ -3,43 +3,31 @@
 Third-party component inventory, integration records, patches, and license/provenance compliance for Wicofe OS.
 
 ## Scope
-
-- Inventory of imported and externally maintained components.
-- Upstream source, version, commit, and download provenance records.
+- Imported and externally maintained component inventory.
+- Upstream source, version, commit, and download provenance.
 - License texts, notices, attribution, and redistribution obligations.
 - Wicofe-specific patch tracking and upstream submission status.
-- Security advisories and maintenance status for integrated components.
-- Build and integration notes for approved third-party software.
+- Security advisories and maintenance status.
 - Dependency inventories and release SBOM reconciliation.
 
 ## Dependency license policy
 
-The authoritative [Wicofe dependency license policy](policies/DEPENDENCY_LICENSE_POLICY_0.1.md) applies to every direct and transitive dependency and shipped asset:
+The authoritative [Wicofe Dependency License Policy 0.2](policies/DEPENDENCY_LICENSE_POLICY_0.2.md) applies to all direct and transitive dependencies and shipped assets:
 
-- GPL: prohibited.
-- AGPL: prohibited.
-- LGPL: conditionally allowed only when essential, not reasonably implementable in-house, isolated where practical, legally reviewed and explicitly approved by the project owner.
-- All other third-party dependency licenses: not permitted unless the policy is formally amended.
-- Unknown or incomplete license evidence: blocked.
+- **GPL:** prohibited.
+- **AGPL:** prohibited.
+- **LGPL:** conditionally allowed after exact-version technical/license review and scoped approval; prefer in-house implementation when reasonably feasible.
+- **Other licenses:** allowed when their exact terms, compatibility and obligations are reviewed and met. This includes common licenses such as MIT, BSD, ISC, Apache-2.0, MPL-2.0 and Zlib.
+- **Other copyleft, custom, proprietary or ambiguous terms:** require careful compatibility review and explicit project-owner approval.
+- **Unknown or incomplete license evidence:** blocked pending review.
 
-Original Wicofe-authored code targets MPL-2.0. Third-party code retains its own license and notices; do not relicense imported code or remove notices.
+Original Wicofe-authored code targets MPL-2.0 unless a repository explicitly documents otherwise. Third-party code retains its own license and notices; do not relicense imported code or remove notices.
 
 ## Required component record
 
-Each imported component should have a record containing:
-
-- Upstream name and canonical URL.
-- Exact version, release tag, and source commit.
-- License identifier and included license/notice files.
-- Download/source provenance and integrity information where available.
-- Local patches and rationale.
-- Build configuration and enabled optional features.
-- Direct and transitive dependency/license review.
-- Security and maintenance status.
-- Wicofe integration owner and approval status.
+Each imported component should record upstream name and canonical URL, exact version/tag/commit, source integrity, license text and SPDX evidence, notices, direct/transitive dependencies, enabled features, local patches, security/maintenance status, consuming repositories and approval scope.
 
 ## Suggested structure
-
 - `components/` — one record per component.
 - `patches/` — Wicofe-maintained patch series.
 - `licenses/` — required license texts and notices.
@@ -56,8 +44,8 @@ Original Wicofe-authored material is intended to use MPL-2.0. Third-party code a
 
 ## Component intake
 
-Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md) to record source provenance, exact versions, license obligations, enabled features, patches, and review decisions. Review the [third-party intake architecture](docs/THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md) and the binding [dependency license policy](policies/DEPENDENCY_LICENSE_POLICY_0.1.md).
+Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md), [third-party intake architecture](docs/THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md), and the binding [dependency license policy](policies/DEPENDENCY_LICENSE_POLICY_0.2.md).
 
 ## Documentation
 
-See [docs/INDEX.md](docs/INDEX.md) for this repository's technical documentation. The [central repository documentation map](https://github.com/Waizusora/Wicofe-Docs/blob/main/REPOSITORY_DOCUMENTATION_MAP.md) identifies canonical ownership and cross-repository boundaries.
+See [docs/INDEX.md](docs/INDEX.md). The [central repository documentation map](https://github.com/Waizusora/Wicofe-Docs/blob/main/REPOSITORY_DOCUMENTATION_MAP.md) identifies canonical ownership and cross-repository boundaries.
