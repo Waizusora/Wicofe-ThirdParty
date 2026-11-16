@@ -26,7 +26,7 @@ The upstream LICENSE files listed below were inspected at the stated source snap
 | `dtolnay/rust-toolchain@stable` | `39008827e6b4319a349e9a42dfc90579dd25f1ca` | MIT | [LICENSE](https://github.com/dtolnay/rust-toolchain/blob/39008827e6b4319a349e9a42dfc90579dd25f1ca/LICENSE) |
 | `reactivecircus/android-emulator-runner@v2` | `a421e43855164a8197daf9d8d40fe71c6996bb0d` | Apache-2.0 | [LICENSE](https://github.com/ReactiveCircus/android-emulator-runner/blob/a421e43855164a8197daf9d8d40fe71c6996bb0d/LICENSE) |
 | `taiki-e/install-action@cross` | `af22fbf512bbc91a6a7869728037f907cc27e9d1` | MIT OR Apache-2.0 | [MIT](https://github.com/taiki-e/install-action/blob/af22fbf512bbc91a6a7869728037f907cc27e9d1/LICENSE-MIT) · [Apache-2.0](https://github.com/taiki-e/install-action/blob/af22fbf512bbc91a6a7869728037f907cc27e9d1/LICENSE-APACHE) |
-| `Waizusora/Wicofe-Tools/.github/workflows/cross-repository-dependency-audit.yml` | `ca5e5747c7f92921c24f03a56d42a27a5f0c1c52` | MPL-2.0 | [LICENSE](https://github.com/Waizusora/Wicofe-Tools/blob/ca5e5747c7f92921c24f03a56d42a27a5f0c1c52/LICENSE) |
+| `Waizusora/Wicofe-Tools/.github/workflows/cross-repository-dependency-audit.yml` | `ad1175c000c765834045a0035fae3cb0b4a49374` | MPL-2.0 | [LICENSE](https://github.com/Waizusora/Wicofe-Tools/blob/ad1175c000c765834045a0035fae3cb0b4a49374/LICENSE) |
 
 ## Required follow-up
 
@@ -34,7 +34,7 @@ The upstream LICENSE files listed below were inspected at the stated source snap
 2. Pin all consumer workflow references to immutable commit SHAs. Wicofe-Tools workflows have been updated to SHA-pinned v6 actions; other repositories still contain mutable tag/branch references.
 3. Review each action's own runtime dependencies, bundled JavaScript, downloaded tools and transitive supply chain.
 4. Assess maintenance/security status, release provenance and tag-signature verification. The ReactiveCircus v2 annotated tag was unsigned at the inspected tag object.
-5. Preserve required notices and include action licenses in the release compliance bundle.
+5. Preserve required notices and include action licenses in the release compliance bundle.\n\nWicofe-Build now pins the reusable workflow file at `ad1175c000c765834045a0035fae3cb0b4a49374` and passes the auditor source checkout pin `b459eb9dd80b265183bff4dc518d82ad73321150`. The reusable workflow and the tool source are therefore separately revision-pinned. The internal MPL-2.0 workflow still requires explicit review under Policy 0.2.
 
 ## Decision
 
