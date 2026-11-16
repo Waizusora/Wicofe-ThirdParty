@@ -93,7 +93,7 @@ The pinned kernel CI environment installs and uses the following GPL build/test 
 | \`xorriso\` | \`1:1.5.6-1.1ubuntu4\` | ISO creation | REJECTED — GPL-2.0-or-later |
 
 The toolchain remediation already removed GNU Make, GNU tar, GNU coreutils \`sha256sum\`, and GNU binutils \`readelf\` from the active kernel build steps:
-- Limine host utility is taken from the pinned binary archive; no compiler or GNU Make is needed in this workflow.
+- Limine host utility is compiled from the root-level C99 source in the pinned binary archive using Clang 22; GNU Make is not invoked.
 - SHA-256 verification and safe archive extraction use Python standard-library \`hashlib\` and \`tarfile\`.
 - ELF inspection uses \`llvm-readelf-22\`.
 
