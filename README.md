@@ -46,3 +46,7 @@ Initial repository baseline. This repository does not imply that any third-party
 ## License
 
 Original Wicofe-authored material is intended to use MPL-2.0. Third-party code and license texts remain under their respective terms.
+
+## Component intake
+
+Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md) to record source provenance, exact versions, license obligations, enabled features, patches, and review decisions for each proposed third-party dependency.
