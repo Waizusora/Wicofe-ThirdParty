@@ -72,7 +72,7 @@ This snapshot is not a Wicofe OS compliance certification.
 - Source commit: \`89a9512c623a4779cc73e3869383876d54264b28\`
 - Tag signature: verified
 - Release archive: \`limine-binary.tar.xz\`
-- SHA-256: \`939f670e75e75afdc20536c73f7e7cdbd379cab67a17c17e0bb0ed92a8ccf78c\`
+- SHA-256: \`939f670e0831cc940453fd3a0ddfb2b324c0b4e3c5d0e741c190aa0d13df0103\`
 - Primary license: BSD-2-Clause ([COPYING](https://github.com/Limine-Bootloader/Limine/blob/89a9512c623a4779cc73e3869383876d54264b28/COPYING))
 - Bundled notices: [3RDPARTY.md](https://github.com/Limine-Bootloader/Limine/blob/89a9512c623a4779cc73e3869383876d54264b28/3RDPARTY.md)
 
