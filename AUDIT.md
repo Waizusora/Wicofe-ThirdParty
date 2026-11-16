@@ -71,8 +71,9 @@ Two GPL-2.0-or-later host packages were detected in Wicofe-Kernel CI and are **R
 
 They are build/test host dependencies and are not copied into the final ISO, but Policy 0.2 does not provide a build-only exception. They remain release blockers. They have not been removed because they currently provide required ISO-generation and boot-validation functionality.
 
-Candidate replacements already identified:
-- QEMU → Bochs (LGPL-2.1; explicit conditional approval and x86 boot-log parity tests required; not an AArch64 replacement).
+Candidate replacements under review:
+- QEMU → [Bochs 3.1](https://github.com/bochs-emu/Bochs/tree/REL_3_1_FINAL), source snapshot `8a71571438ad477455b1996bf4e31087694a93b2`, upstream [LGPL-2.1 LICENSE](https://github.com/bochs-emu/Bochs/blob/8a71571438ad477455b1996bf4e31087694a93b2/LICENSE). It supports x86-64 PC emulation; exact file-level license notices, package closure, serial logging and boot-marker parity remain to be checked. It is not an AArch64 emulator.
+- xorriso → [PyCdlib 1.22.0](https://pypi.org/project/pycdlib/), source snapshot `d5a9946b08a6a30935dcca188b7ef7fa744a4967`, upstream [LGPL-2.1-only COPYING](https://github.com/clalancette/pycdlib/blob/d5a9946b08a6a30935dcca188b7ef7fa744a4967/COPYING). Upstream documents El Torito ISO creation through a Python API. It needs explicit LGPL approval and exact BIOS boot-info-table, Rock Ridge/Joliet, volume metadata and boot parity tests. Do not use the upstream packaging test recipe unchanged because it references GPL genisoimage.
 - xorriso → cdrtools/mkisofs (CDDL-1.0; explicit other-copyleft review/approval required) or libisofs/libburn (LGPL-family; linking/relinking and notice obligations require review).
 
 No candidate is approved by this report. A replacement must be tested before the GPL tool is removed.
