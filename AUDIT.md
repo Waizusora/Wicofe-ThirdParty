@@ -26,29 +26,28 @@ The upstream LICENSE files listed below were inspected at the stated source snap
 | `dtolnay/rust-toolchain@stable` | `39008827e6b4319a349e9a42dfc90579dd25f1ca` | MIT | [LICENSE](https://github.com/dtolnay/rust-toolchain/blob/39008827e6b4319a349e9a42dfc90579dd25f1ca/LICENSE) |
 | `reactivecircus/android-emulator-runner@v2` | `a421e43855164a8197daf9d8d40fe71c6996bb0d` | Apache-2.0 | [LICENSE](https://github.com/ReactiveCircus/android-emulator-runner/blob/a421e43855164a8197daf9d8d40fe71c6996bb0d/LICENSE) |
 | `taiki-e/install-action@cross` | `af22fbf512bbc91a6a7869728037f907cc27e9d1` | MIT OR Apache-2.0 | [MIT](https://github.com/taiki-e/install-action/blob/af22fbf512bbc91a6a7869728037f907cc27e9d1/LICENSE-MIT) · [Apache-2.0](https://github.com/taiki-e/install-action/blob/af22fbf512bbc91a6a7869728037f907cc27e9d1/LICENSE-APACHE) |
-| `Waizusora/Wicofe-Tools/.github/workflows/cross-repository-dependency-audit.yml` | `ad1175c000c765834045a0035fae3cb0b4a49374` | MPL-2.0 | [LICENSE](https://github.com/Waizusora/Wicofe-Tools/blob/ad1175c000c765834045a0035fae3cb0b4a49374/LICENSE) |
+| `Waizusora/Wicofe-Tools/.github/workflows/cross-repository-dependency-audit.yml` | `cccc4c197687ce8fd629f9b9d8a7d95d4e89cddc` | MPL-2.0 | [LICENSE](https://github.com/Waizusora/Wicofe-Tools/blob/cccc4c197687ce8fd629f9b9d8a7d95d4e89cddc/LICENSE) |
 
 
 ## Cross-repository scan snapshot — 2026-11-16
 
-**Latest completed evidence run:** [Wicofe-Tools run 43878335380](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43878335380)  
-**Artifact:** [29-repository JSON/Markdown reports and Cargo metadata](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43878335380/artifacts/14231212277)  
+**Latest completed source/build evidence:** [Wicofe-Tools run 43880910251](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43880910251) · [artifact 14233220400](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43880910251/artifacts/14233220400)  
 **Policy:** [Dependency License Policy 0.2](policies/DEPENDENCY_LICENSE_POLICY_0.2.md)
 
-| Finding | Result |
+| Source/build finding | Result |
 |---|---:|
 | Repositories checked out and revision-recorded | 29 / 29 |
 | Repositories with resolved Cargo manifests | 4 |
 | Cargo.toml manifests | 16 |
 | Transient Cargo.lock files generated in disposable CI checkouts | 4 |
-| Total dependency/build-time records | 347 |
-| NEEDS_REVIEW | 244 |
-| UNKNOWN | 101 |
+| Total source/build dependency records | 347 |
+| NEEDS_REVIEW | 243 |
+| UNKNOWN | 102 |
 | REJECTED | 2 |
 | Cargo dependency records | 217 |
 | GitHub Actions records | 22 |
 | Build-tool command records | 72 |
-| System-package records | 14 |
+| System-package references | 14 |
 | Build-script command records | 12 |
 | Runner-image records | 6 |
 | Rust toolchain records | 3 |
@@ -56,35 +55,41 @@ The upstream LICENSE files listed below were inspected at the stated source snap
 | Known vendored asset records | 2 (both UNKNOWN) |
 | Git submodule records | 0 |
 
-Cargo workspaces/packages audited: Wicofe-Kernel, Osynit, WDE and Mysh. The 217 Cargo records are part of the larger 347-record inventory; the remaining records cover GitHub Actions, build commands, system packages, runner images, toolchains and downloaded artifacts. Four transient lockfiles were generated in disposable CI checkouts and uploaded as evidence. They were not committed to source repositories.
+The four Cargo workspaces are Wicofe-Kernel, Osynit, WDE and Mysh. Six repositories emitted source/build dependency records: Wicofe-Kernel (45), WDE (239), Mysh (32), Osynit (8), Wicofe-Tools (22) and Wicofe-Build (1 UNKNOWN). The other 23 repositories emitted no records; this is not a no-dependency approval.
 
-Six repositories emitted dependency/build-time records: Wicofe-Kernel (45), WDE (239), Mysh (32), Osynit (8), Wicofe-Tools (22) and Wicofe-Build (1). The other 23 repositories emitted no dependency records in this run; that is not a no-dependency approval. Repositories without resolved Cargo manifest coverage remain UNKNOWN pending complete source/build/asset inspection and human attestation where justified.
+### Additional CI package-closure evidence
 
-### Prohibited GPL host tools
+These inventories are separate from the 347 source/build records above and must be reconciled before release.
 
-Two GPL-2.0-or-later host packages were detected in Wicofe-Kernel CI and are **REJECTED** under Policy 0.2:
+| Repository | CI package records | REJECTED | NEEDS_REVIEW | UNKNOWN |
+|---|---:|---:|---:|---:|
+| Wicofe-Kernel | 103 | 15 | 84 | 4 |
+| WDE | 32 | 0 | 19 | 13 |
+
+Kernel CI artifact: [run 43880975214 / artifact 14232042726](https://github.com/Waizusora/Wicofe-Kernel/actions/runs/43880975214/artifacts/14232042726). The 15 rejected package records are `cpu-checker`, `ipxe-qemu`, `libburn4t64`, `libcdparanoia0`, `libfdt1`, `libfftw3-single3`, `libiscsi7`, `libisoburn1t64`, `libisofs6t64`, `libv4l-0t64`, `libv4lconvert0t64`, `libvte-2.91-0`, `libvte-2.91-common`, `msr-tools` and `xorriso`. The xorriso closure includes GPL `libburn4t64`, `libisoburn1t64` and `libisofs6t64`. The installed package delta still needs direct/transitive/recommended relationship mapping.
+
+Sixty-three Kernel package records contain LGPL declarations: 27 primary LGPL, 26 MIXED_REVIEW, three OTHER_REVIEW and seven REJECTED because GPL is required. Three OR expressions are held at NEEDS_REVIEW: `ipxe-qemu-256k-compat-efi-roms` (GPL OR UBDL), `libflac14` (GPL OR LGPL), and `librdmacm1t64` (BSD-MIT OR GPL). QEMU's Debian package family uses the non-SPDX expression `GPL2-or-LGPL2-with-additions`; the package-level records remain NEEDS_REVIEW while the source-level scan conservatively rejects QEMU from upstream GPL COPYING evidence. QEMU remains blocked pending file/binary mapping.
+
+WDE CI artifact: [run 43880983235 / artifact 14231024109](https://github.com/Waizusora/WDE/actions/runs/43880983235/artifacts/14231024109). Fourteen GLVND/Mesa package records have MIT as the primary `Files: *` license but GPL-3+ declarations in non-default copyright stanzas; all remain NEEDS_REVIEW pending binary payload mapping. Thirteen package identities remain UNKNOWN.
+
+### Direct GPL host tools
+
+Two direct GPL-2.0-or-later host-tool records remain release blockers under Policy 0.2:
 
 | Dependency | Version | Function | Evidence |
 |---|---|---|---|
 | `qemu-system-x86` | `1:10.2.1+ds-1ubuntu3.3` | x86-64 BIOS boot validation | [QEMU COPYING](https://github.com/qemu/qemu/blob/2d3df8abca265c9bcc9e438d691d561592060998/COPYING) |
-| `xorriso` | `1:1.5.6-1.1ubuntu4` | ISO generation and ISO notice inspection | [libisoburn COPYING](https://github.com/Enzime/libisoburn/blob/master/COPYING) · [xorriso project](https://www.gnu.org/software/xorriso/) |
+| `xorriso` | `1:1.5.6-1.1ubuntu4` | ISO generation and notice inspection | [libisoburn COPYING](https://github.com/Enzime/libisoburn/blob/master/COPYING) · [xorriso project](https://www.gnu.org/software/xorriso/) |
 
-They are build/test host dependencies and are not copied into the final ISO, but Policy 0.2 does not provide a build-only exception. They remain release blockers. They have not been removed because they currently provide required ISO-generation and boot-validation functionality.
+They are build/test host dependencies and are not copied into the final ISO. Policy 0.2 has no build-only exception. Do not remove them before permitted replacements preserve ISO and boot validation behavior.
 
-Candidate replacements under review:
-- QEMU → [Bochs 3.1](https://github.com/bochs-emu/Bochs/tree/REL_3_1_FINAL), source snapshot `30cfd566ecc8deb33e56e801e32b444a7041b6d2`, upstream [LGPL-2.1 LICENSE](https://github.com/bochs-emu/Bochs/blob/30cfd566ecc8deb33e56e801e32b444a7041b6d2/LICENSE). It supports x86-64 PC emulation; exact file-level license notices, package closure, serial logging and boot-marker parity remain to be checked. It is not an AArch64 emulator.
-- xorriso → [PyCdlib 1.22.0](https://pypi.org/project/pycdlib/), source snapshot `fbf3079c6254054a1da03fccb1f84763f5f20b28`, upstream [LGPL-2.1-only COPYING](https://github.com/clalancette/pycdlib/blob/fbf3079c6254054a1da03fccb1f84763f5f20b28/COPYING). Upstream documents El Torito ISO creation through a Python API. It needs explicit LGPL approval and exact BIOS boot-info-table, Rock Ridge/Joliet, volume metadata and boot parity tests. Do not use the upstream packaging test recipe unchanged because it references GPL genisoimage.
-- xorriso → cdrtools/mkisofs (CDDL-1.0; explicit other-copyleft review/approval required) or libisofs/libburn (LGPL-family; linking/relinking and notice obligations require review).
+### Candidate replacements under review
 
-No candidate is approved by this report. A replacement must be tested before the GPL tool is removed.
+- QEMU → [Bochs 3.1](https://github.com/bochs-emu/Bochs/tree/REL_3_1_FINAL), immutable source commit `30cfd566ecc8deb33e56e801e32b444a7041b6d2`, [LGPL-2.1 LICENSE](https://github.com/bochs-emu/Bochs/blob/30cfd566ecc8deb33e56e801e32b444a7041b6d2/LICENSE). It supports x86-64 PC emulation; verify file-level notices, package closure, serial logging and boot-marker parity. It is not an AArch64 emulator.
+- xorriso → [PyCdlib 1.22.0](https://pypi.org/project/pycdlib/), immutable source commit `fbf3079c6254054a1da03fccb1f84763f5f20b28`, [LGPL-2.1-only COPYING](https://github.com/clalancette/pycdlib/blob/fbf3079c6254054a1da03fccb1f84763f5f20b28/COPYING). Upstream documents El Torito ISO creation through a Python API. Verify BIOS boot-info-table, Rock Ridge/Joliet, volume metadata and boot parity. Do not use its upstream packaging test recipe unchanged because it references GPL genisoimage.
+- xorriso → cdrtools/mkisofs (CDDL-1.0; explicit other-copyleft review/approval) or libisofs/libburn (LGPL-family; linking/relinking and notice review).
 
-### Remaining status
-
-All 244 NEEDS_REVIEW records lack the required scoped approval. All 101 UNKNOWN records lack sufficient evidence or a resolved source/license identity. Two known vendored Limine notice files remain UNKNOWN as asset records until their component/source/binary distribution relationship is fully reconciled. The current scan does not prove the absence of other firmware, fonts, codecs, schemas, generated files or binary assets.
-
-Wicofe-Build contains a reusable/tag-triggered strict dependency gate that invokes the Wicofe-Tools cross-repository workflow at an immutable workflow revision and separately pins the auditor source. This integration point does not yet constitute a complete end-to-end image publication gate. Final image SBOM and notice reconciliation remain mandatory.
-
-This snapshot is not a Wicofe OS compliance certification.
+No candidate is approved. See the [detailed dependency review queue](DEPENDENCY_REVIEW_QUEUE_2026-11-16.md) for exact package versions, LGPL-bearing packages, optional license branches, UNKNOWN identities and decisions still required.
 
 ## Limine bootloader binary — Wicofe-Kernel
 
@@ -106,26 +111,11 @@ Wicofe-Kernel now vendors the exact upstream COPYING and 3RDPARTY.md files under
 The script also uses host build tools including curl, make, tar, sha256sum and xorriso. Their versions, source provenance and build-environment image are not yet pinned. Limine's security/maintenance status is NOT_ASSESSED.
 
 
-## Wicofe-Kernel CI host-tool blockers
+## Wicofe-Kernel package-closure review
 
-The pinned kernel CI environment installs and uses the following GPL build/test tools. They are not copied into the Wicofe ISO, but Policy 0.2 has no documented build-only exception, so the auditor treats them as REJECTED and release-blocking rather than silently exempting them.
+The 103-package Kernel CI inventory is detailed in the cross-repository snapshot above and in [DEPENDENCY_REVIEW_QUEUE_2026-11-16.md](DEPENDENCY_REVIEW_QUEUE_2026-11-16.md). It includes 15 REJECTED packages, 84 NEEDS_REVIEW and four UNKNOWN. Twenty-seven packages have primary LGPL classification; 63 contain LGPL declarations across primary/secondary copyright stanzas. No LGPL approval is recorded.
 
-| Dependency | Pinned version | Function | License decision |
-|---|---|---|---|
-| \`qemu-system-x86\` | \`1:10.2.1+ds-1ubuntu3.3\` | BIOS boot test | REJECTED — GPL-2.0-or-later |
-| \`xorriso\` | \`1:1.5.6-1.1ubuntu4\` | ISO creation | REJECTED — GPL-2.0-or-later |
-
-The toolchain remediation already removed GNU Make, GNU tar, GNU coreutils \`sha256sum\`, and GNU binutils \`readelf\` from the active kernel build steps:
-- Limine host utility is compiled from the root-level C99 source in the pinned binary archive using Clang 22; GNU Make is not invoked.
-- SHA-256 verification and safe archive extraction use Python standard-library \`hashlib\` and \`tarfile\`.
-- ELF inspection uses \`llvm-readelf-22\`.
-
-Remaining alternatives under evaluation:
-- QEMU → Bochs (LGPL-2.1; x86 PC emulator, not an AArch64 replacement). Requires LGPL review/approval and boot-log parity tests.
-- xorriso → cdrtools/mkisofs (CDDL-1.0; explicit copyleft review/approval) or libisofs/libburn (LGPL-family; linking/relinking and notice obligations require review).
-- LLVM 22 tools use Apache-2.0 WITH LLVM-exception; verify package-level notices from the CI system-package inventory before approval.
-
-The current QEMU and xorriso uses remain release blockers until a permitted replacement is validated or the policy scope is explicitly revised by its owner. They have not been removed because they currently provide the working ISO-generation and boot-validation path.
+The source-level scan rejects QEMU and xorriso. The package-level audit also exposes a custom QEMU package expression (`GPL2-or-LGPL2-with-additions`) requiring file/binary mapping. The current Kernel CI successfully uses these tools, but successful build/boot does not establish license compliance. Candidate alternatives remain Bochs (LGPL-2.1) and PyCdlib (LGPL-2.1-only), both requiring explicit review and parity tests.
 
 ## Required follow-up
 
@@ -133,7 +123,7 @@ The current QEMU and xorriso uses remain release blockers until a permitted repl
 2. Pin all consumer workflow references to immutable commit SHAs. Wicofe-Tools workflows have been updated to SHA-pinned v6 actions; other repositories still contain mutable tag/branch references.
 3. Review each action's own runtime dependencies, bundled JavaScript, downloaded tools and transitive supply chain.
 4. Assess maintenance/security status, release provenance and tag-signature verification. The ReactiveCircus v2 annotated tag was unsigned at the inspected tag object.
-5. Preserve required notices and include action licenses in the release compliance bundle.\n\nWicofe-Build now pins the reusable workflow file at `ad1175c000c765834045a0035fae3cb0b4a49374` and passes the auditor source checkout pin `b459eb9dd80b265183bff4dc518d82ad73321150`. The reusable workflow and the tool source are therefore separately revision-pinned. The internal MPL-2.0 workflow still requires explicit review under Policy 0.2.
+5. Preserve required notices and include action licenses in the release compliance bundle.\n\nWicofe-Build now pins the reusable workflow file and auditor source checkout to `cccc4c197687ce8fd629f9b9d8a7d95d4e89cddc`. Wicofe-Kernel and WDE also pin this reviewed auditor revision for their package-license CI evidence. The reusable workflow and the tool source are therefore separately revision-pinned. The internal MPL-2.0 workflow still requires explicit review under Policy 0.2.
 
 ## Decision
 
