@@ -103,7 +103,7 @@ The 27 primary-LGPL package records are:
 
 The 26 MIXED_REVIEW records with LGPL declarations are `libavc1394-0`, `libcaca0`, `libcacard0`, `libdaxctl1`, `libdv4t64`, `libflac14`, `libiec61883-0`, `libjack-jackd2-0`, `libmp3lame0`, `libndctl6`, `libnfs14`, `libpipewire-0.3-0t64`, `libpipewire-0.3-common`, `libproxy1v5`, `libpulse0`, `librados2`, `librbd1`, `libshout3`, `libsndfile1`, `libspa-0.2-modules`, `libtheora1`, `libtheoradec2`, `libtheoraenc2`, `libusbredirparser1t64`, `libvisual-0.4-0` and `ubuntu-helper-virt-hwe`.
 
-All non-rejected LGPL/mixed records remain NEEDS_REVIEW. The seven GPL-required records that also contain LGPL declarations remain REJECTED. No LGPL package has explicit approval or verified relinking/source/notices conditions in the decision registry.
+The three OTHER_REVIEW records with LGPL declarations are `libsdl2-2.0-0`, `libsdl2-classic` and `libspeex1`. The seven GPL-required records that also contain LGPL declarations are `libcdparanoia0`, `libfdt1`, `libiscsi7`, `libv4l-0t64`, `libv4lconvert0t64`, `libvte-2.91-0` and `libvte-2.91-common`; they remain REJECTED. All non-rejected LGPL/mixed records remain NEEDS_REVIEW. No LGPL package has explicit approval or verified relinking/source/notices conditions in the decision registry.
 
 ## 4. Multi-license OR alternatives requiring human selection
 
