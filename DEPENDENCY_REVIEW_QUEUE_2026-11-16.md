@@ -1,7 +1,7 @@
 # Wicofe Dependency License Review Queue — 2026-11-16
 
 **Policy:** [Dependency License Policy 0.2](policies/DEPENDENCY_LICENSE_POLICY_0.2.md)  
-**Latest cross-repository evidence:** [Wicofe-Tools run 43880910251](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43880910251) · [artifact 14233220400](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43880910251/artifacts/14233220400)  
+**Latest cross-repository evidence:** [Wicofe-Tools run 43881861767](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43881861767) · [artifact 14233016601](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43881861767/artifacts/14233016601)  
 **Additional CI package evidence:** [Wicofe-Kernel run 43881542034 / artifact 14231614886](https://github.com/Waizusora/Wicofe-Kernel/actions/runs/43881542034/artifacts/14231614886) · [WDE run 43881760690 / artifact 14232651762](https://github.com/Waizusora/WDE/actions/runs/43881760690/artifacts/14232651762)  
 **Overall result:** BLOCKED. This queue is evidence triage, not legal approval.
 
@@ -156,7 +156,7 @@ The example decision registry is intentionally empty. Do not populate it until t
 
 ## 10. Release gate and remaining gaps
 
-The strict cross-repository run [43880910251](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43880910251) failed closed and uploaded artifact [14233220400](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43880910251/artifacts/14233220400). Kernel and WDE CI package artifacts are additional evidence and are not yet automatically reconciled by the Wicofe-Build release gate.
+The strict cross-repository run [43881861767](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43881861767) failed closed and uploaded artifact [14233016601](https://github.com/Waizusora/Wicofe-Tools/actions/runs/43881861767/artifacts/14233016601). Kernel and WDE CI package artifacts are additional evidence and are not yet automatically reconciled by the Wicofe-Build release gate.
 
 Vendored firmware, fonts, codecs, schemas, generated code, binary assets and final image contents still require inventory. Security and maintenance status remain NOT_ASSESSED for all records unless explicitly recorded in the artifact/decision record.
 
