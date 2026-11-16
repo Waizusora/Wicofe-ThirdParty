@@ -42,6 +42,10 @@ Initial repository baseline. This repository does not imply that any third-party
 
 Original Wicofe-authored material is intended to use MPL-2.0. Third-party code and license texts remain under their respective terms.
 
+## Current audit
+
+See [AUDIT.md](AUDIT.md) for the initial cross-repository GitHub Actions source/license evidence inventory. Entries remain pending explicit approval; this is not a compliance certification.
+
 ## Component intake
 
 Use [COMPONENT_RECORD_TEMPLATE.md](COMPONENT_RECORD_TEMPLATE.md), [third-party intake architecture](docs/THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md), and the binding [dependency license policy](policies/DEPENDENCY_LICENSE_POLICY_0.2.md).
