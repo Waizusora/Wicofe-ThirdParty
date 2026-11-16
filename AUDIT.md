@@ -62,6 +62,26 @@ The 20 GitHub Actions records span Mysh (9), Osynit (2), WDE (2), Wicofe-Kernel 
 
 This snapshot is not a Wicofe OS compliance certification.
 
+
+## Limine bootloader binary — Wicofe-Kernel
+
+**Status:** NEEDS_REVIEW — upstream license and checksum evidence verified; owner approval and final ISO verification remain pending.
+
+- Upstream: https://github.com/Limine-Bootloader/Limine
+- Release: \`v12.9.6\`
+- Source commit: \`89a9512c623a4779cc73e3869383876d54264b28\`
+- Tag signature: verified
+- Release archive: \`limine-binary.tar.xz\`
+- SHA-256: \`939f670e75e75afdc20536c73f7e7cdbd379cab67a17c17e0bb0ed92a8ccf78c\`
+- Primary license: BSD-2-Clause ([COPYING](https://github.com/Limine-Bootloader/Limine/blob/89a9512c623a4779cc73e3869383876d54264b28/COPYING))
+- Bundled notices: [3RDPARTY.md](https://github.com/Limine-Bootloader/Limine/blob/89a9512c623a4779cc73e3869383876d54264b28/3RDPARTY.md)
+
+The reviewed upstream third-party notice lists 0BSD, BSD-2-Clause, MIT, Apache-2.0, CC0-1.0 and CC-BY-3.0-derived terms. No GPL/AGPL/LGPL identifier was found in the reviewed COPYING and 3RDPARTY.md documents. The detached archive signature has not been independently verified.
+
+Wicofe-Kernel now vendors the exact upstream COPYING and 3RDPARTY.md files under \`third_party/licenses/limine-12.9.6/\`; its ISO build script requires them and stages them under \`/boot/limine/licenses/limine-12.9.6/\`. The ISO build has not yet been rerun and inspected after this change.
+
+The script also uses host build tools including curl, make, tar, sha256sum and xorriso. Their versions, source provenance and build-environment image are not yet pinned. Limine's security/maintenance status is NOT_ASSESSED.
+
 ## Required follow-up
 
 1. Obtain explicit project-owner approval for each action/version under the consuming repository and release scope.
