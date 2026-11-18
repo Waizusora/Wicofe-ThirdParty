@@ -23,7 +23,7 @@ Software and assets licensed under any GNU Affero General Public License version
 
 ### 2.3 LGPL — conditionally allowed
 
-LGPL components may be used only after a scoped technical and license review. Prefer an in-house implementation when realistically feasible, especially for core, security-sensitive or long-lived interfaces.
+LGPL components may be considered only when no technically and legally suitable permissively licensed alternative is available. First evaluate permissive alternatives and the feasibility of a maintainable in-house implementation. If a from-scratch implementation would be disproportionately difficult, risky, or wasteful, an upstream LGPL component may be considered only after scoped technical and license review and explicit project-owner approval. This is an exception path, not a preferred dependency choice.
 
 Mandatory conditions:
 1. Identify the exact component, version, source commit, LGPL version, files, enabled features, integration method, target and distribution model.
@@ -39,9 +39,9 @@ Mandatory conditions:
 
 LGPL-2.1, LGPL-3.0 and exception-bearing variants are not interchangeable. Failure to satisfy applicable obligations blocks adoption/distribution.
 
-### 2.4 Other licenses — allowed subject to review
+### 2.4 Permissive licenses — preferred subject to review
 
-Third-party dependencies under licenses other than GPL or AGPL are generally allowed, subject to exact-license review and compliance with all applicable terms. This includes, for example, MIT, BSD variants, ISC, Apache-2.0, MPL-2.0, Zlib and other compatible licenses.
+Wicofe prefers permissive licenses such as MIT, BSD variants, ISC, Apache-2.0 and Zlib when their exact terms are suitable. Dependencies under these licenses are still subject to exact-license review and compliance with all applicable terms. Other non-GPL/AGPL licenses, including MPL-2.0 and other copyleft licenses, require compatibility review and explicit project-owner approval where applicable.
 
 Approval is not automatic. For every component, review:
 - Exact license identifier/version and complete license text.
@@ -63,12 +63,14 @@ Unknown, missing, ambiguous, custom, source-available or proprietary terms requi
 Before adding a dependency, document:
 - The concrete requirement and criticality.
 - Whether the feature can be deferred, omitted or simplified.
+- Whether a suitable permissively licensed upstream component exists.
 - Whether Wicofe can implement it with existing code and reasonable engineering effort.
-- Expected security, maintenance, performance and portability impact of an in-house implementation.
+- Whether a from-scratch implementation would be disproportionately difficult, risky, or wasteful.
+- Expected security, maintenance, performance and portability impact of reuse versus an in-house implementation.
 - Available alternatives and why the selected option is preferable.
 - How coupling can be minimized and future replacement preserved.
 
-“Popular”, “convenient” or “faster to integrate” alone is insufficient justification for a core dependency. This preference does not require reinventing commodity components when doing so would create disproportionate security or maintenance risk.
+Independent implementation is encouraged where practical, but Wicofe does not require difficult components to be recreated from scratch. Reuse or fork a suitable upstream project when that is the safer and more maintainable engineering choice, provided its license and architecture satisfy this policy. Convenience alone is not sufficient justification for choosing a copyleft dependency when a suitable permissive alternative exists.
 
 ## 4. Approval workflow
 
@@ -110,4 +112,4 @@ Only the Wicofe project owner may approve exceptions or amend this policy. Recor
 
 This policy does not prove existing repositories or release images comply. Dependency manifests, vendored source, build outputs and release images must be inventoried and checked against it.
 
-**Summary:** GPL and AGPL prohibited. LGPL allowed conditionally after exact review and approval. Other non-GPL/AGPL licenses are allowed subject to their terms, compatibility and review. Prefer in-house implementation where reasonably feasible, but do not reinvent components when that would materially worsen security or maintainability.
+**Summary:** Avoid GPL and AGPL; they are prohibited for normal project integration. Prefer suitable permissive licenses. LGPL may be considered only when no suitable permissive alternative exists and after exact review and explicit approval. Reuse or fork existing components when implementing them from scratch would be disproportionately difficult or would materially worsen security or maintainability.
