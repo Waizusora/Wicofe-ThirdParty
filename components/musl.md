@@ -15,6 +15,7 @@
 - Exact commit: 7813e9119eb5fe681b6750b8a033a0490bca0941
 - Tree: dc8444f8e5dfcc3a592dd62653d17a61f8d773a1
 - Committer date: 2026-10-14T22:48:56Z
+- Commit signature: unsigned; GitHub verification reports unverified
 - Mirror last refreshed: 2026-11-17
 - Source archive URL: not downloaded
 - Archive checksum: not recorded
