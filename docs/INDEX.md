@@ -7,6 +7,9 @@ This directory documents external components integrated or proposed for Wicofe.
 - [Third-party intake and compliance architecture 0.1](THIRD_PARTY_INTAKE_ARCHITECTURE_0.1.md) — source provenance, license review, dependency inventory, security assessment, approval scope and SBOM integration.
 - [Component record template](../COMPONENT_RECORD_TEMPLATE.md) — human-readable intake record for an individual dependency.
 
+## Proposed component records
+- [musl C library](../components/musl.md) — proposed Wlibc source foundation; project-level MIT evidence recorded, exact revision and component audit pending; not approved for import.
+
 ## Current audit records
 - [CI action and cross-repository dependency inventory](../AUDIT.md) — upstream source commits, license evidence and strict audit findings.
 - [Dependency review queue — 2026-11-16](../DEPENDENCY_REVIEW_QUEUE_2026-11-16.md) — rejected GPL host tools, LGPL-bearing alternatives, UNKNOWN identities, unapproved records and release blockers.
